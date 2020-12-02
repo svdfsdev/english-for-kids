@@ -1,0 +1,314 @@
+* {
+    font-family: monospace;
+}
+
+.container {
+    max-width: 1300px;
+    margin: 60px auto 0px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.menu {
+    z-index: 10;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 250px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    transform: translateX(-100%);
+    background: linear-gradient(to right, hsl(219, 85%, 63%), hsl(219, 79%, 66%, 0.8), hsl(219, 85%, 63%));
+    transition: 0.5s;
+    background-size: 200%;
+}
+
+.open {
+    transition: 0.5s;
+    transform: translateX(0);
+}
+
+.menu-list {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 50%;
+    flex-direction: column;
+    text-transform: uppercase;
+}
+
+.menu-btn {
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+    background: hsl(219, 79%, 66%, 0.8);
+    position: absolute;
+    right: -45px;
+    top: 5px;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+.menu a {
+    color: white;
+    font-size: 20px;
+    letter-spacing: 3px;
+    display: block;
+}
+
+.menu a:hover {
+    font-size: 24px;
+    font-weight: 700;
+    transition: 0.25s;
+}
+
+.line,
+.line::before,
+.line::after {
+    transition: 0.5s;
+    position: absolute;
+    width: 30px;
+    height: 4px;
+    background: whitesmoke;
+}
+
+.line {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.line::before {
+    content: "";
+    top: -10px;
+}
+
+.line::after {
+    content: "";
+    top: 10px;
+}
+
+.open .line {
+    background: transparent;
+}
+
+.open .line::before {
+    background: white;
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.open .line::after {
+    background: white;
+    top: 0;
+    transform: rotate(-45deg);
+}
+
+.switch {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+    color: white;
+    height: 40px;
+    width: 100px;
+    position: fixed;
+    top: 5px;
+    right: 10px;
+    font-size: 19px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    background: linear-gradient(to left, hsl(219, 69%, 66%, 0.8), hsl(219, 50%, 62%), hsl(219, 79%, 66%, 0.8));
+    transition: 0.5s;
+    background-size: 200%;
+    border: none;
+}
+
+.switch-play {
+    background: linear-gradient(to left, #a8e063, #56ab2f, #a8e063);
+    transition: 0.5s;
+    background-size: 200%;
+}
+
+.switch:hover {
+    transition: 0.5s;
+    cursor: pointer;
+    background-position: right;
+}
+
+.card {
+    width: 280px;
+    height: 255px;
+    color: hsl(219, 85%, 63%);
+    border: 1px solid hsl(219, 79%, 66%);
+    border-radius: 3%;
+    text-align: center;
+    margin: 0 10px 30px 10px;
+    cursor: pointer;
+    transition: 1s;
+    position: relative;
+}
+
+a.card:hover {
+    box-shadow: 0 0 5px 5px;
+}
+
+div.card {
+    border: none;
+}
+
+.front:hover{
+    box-shadow: 0 0 5px 5px;
+}
+
+.back {
+    box-shadow: 0 0 5px 5px;
+}
+.front,
+.back {
+    border: 1px solid hsl(219, 79%, 66%);
+    border-radius: 3%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 1s;
+    backface-visibility: hidden;
+    flex-wrap: wrap;
+}
+
+.front-title {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    align-items: center;
+}
+
+.back {
+    transform: rotateY(180deg);
+}
+
+.btn-turn {
+    width: 25px;
+    height: 25px;
+}
+
+.frontTurn {transform: rotateY(180deg);}
+.backTurn {transform: rotateY(360deg);}
+
+.img-card {
+    width: 100%;
+    border-radius: 3%;
+}
+
+.title {
+    text-transform: capitalize;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.clear {
+    opacity: 0;
+    transition: 1s;
+}
+
+.hidden {
+    display: none;
+}
+
+.category {
+    text-transform: capitalize;
+    color: hsl(219, 85%, 63%);
+    font-size: 26px;
+    font-weight: 700;
+    position: absolute;
+    top: -13px;
+}
+
+.current {
+    text-decoration: underline;
+    font-size: 25px;
+}
+
+.start-game {
+    position: relative;
+    width: 200px;
+    margin: auto;
+}
+
+.start-game:hover {
+    cursor: pointer;
+    background-position: right;
+}
+
+.play-mode {
+    color: #56ab2f;
+    border-color: #a8e063;
+    margin: 0 10px 0 10px;
+}
+
+.play-mode-bkg {
+    background: linear-gradient(to right, #56ab2ff9, #97c959e7);
+}
+
+.guessed {
+    opacity: 0.5;
+    box-shadow: none;
+}
+
+.progres {
+    position: absolute;
+    top: 100px;
+    left: 0px;
+    width: 50px;
+}
+
+.star {
+    width: 45px;
+}
+
+.result {
+    position: absolute;
+    font-size: 40px;
+    color: #97c959e7;
+    font-weight: 700;
+    top: 15px;
+}
+
+.final-picture {
+    position: absolute;
+    max-width: 300px;
+    top: 100px;
+}
+
+table {
+    margin: auto;
+}
+
+@media (max-width: 375px) {
+    .card {
+        width: 230px;
+        height: 210px;
+        margin-bottom: 10px;
+    }
+
+    div.card {
+        margin-bottom: 20px;
+    }
+
+    .success,
+    .fail {
+        margin-top: 20px;
+        width: 80%;
+    }
+}
